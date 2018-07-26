@@ -19,6 +19,16 @@ body {
   transition: width 3s;
 }
 
+#conttttt {
+  /* border: 2px solid rgb(167, 9, 9); */
+  width: 100%;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: rgb(105, 35, 35);
+  opacity: 0.9;
+  height: 700px;
+}
+
 #bisagan{
 /* border: 2px solid wheat; */
 font-family: cursive
