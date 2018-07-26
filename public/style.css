@@ -4,19 +4,36 @@ body {
 
 #cont {
   /* border: 2px solid white; */
+  width: 50%;
+}
+
+#contttt {
+  /* border: 2px solid rgb(167, 9, 9); */
+  width: 100%;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: rgb(105, 35, 35);
+  opacity: 0.9;
+  -webkit-transition: width 3s;
+  /* For Safari 3.1 to 6.0 */
+  transition: width 3s;
 }
 
 #contt {
   /* border: 2px solid rgb(167, 9, 9); */
-  width: 50%;
-  padding: 30px;
-  margin-left: 250px;
+  width: 100%;
+  padding: 20px;
   border-radius: 20px;
   background-color: rgb(105, 35, 35);
+  opacity: 0.9;
+}
+
+#contttt:hover {
+  width: 500px;
 }
 
 #conttt {
-  border: 2px solid white;
+  border: 2px solid rgb(136, 128, 128);
   margin-top: 10px;
   height: 40px;
   width: 100%;
@@ -30,3 +47,5 @@ body {
 #bang {
   margin-top: 100px;
 }
+
+/* =============================================== */
