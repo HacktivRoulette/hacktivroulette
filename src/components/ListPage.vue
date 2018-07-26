@@ -1,14 +1,13 @@
 <template>
   <div class="hello">
 
-    <router-link to="/">
+
       <div id="cont" class="container">
         <div id="conttttt" class="col s12 m12 l12 center">
           <h1  id="bisagan" style="color:white">Join Room</h1>
         </div>
 
       </div>
-    </router-link>
 
   </div>
 </template>
