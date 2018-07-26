@@ -4,7 +4,7 @@
     <router-link to="/">
       <div id="cont" class="container">
         <div id="contttt" class="col s12 m12 l12 center">
-          <h2 class="col s12 m12 l12"  style="color:white">Choose Room</h2>
+          <h1  id="bisagan" style="color:white">Choose Room</h1>
         </div>
 
       </div>

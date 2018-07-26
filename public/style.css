@@ -19,6 +19,11 @@ body {
   transition: width 3s;
 }
 
+#bisagan{
+/* border: 2px solid wheat; */
+font-family: cursive
+}
+
 #contt {
   /* border: 2px solid rgb(167, 9, 9); */
   width: 100%;
