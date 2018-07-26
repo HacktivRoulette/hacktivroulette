@@ -29,9 +29,33 @@ body {
   height: 550px;
 }
 
-#bisagan{
-/* border: 2px solid wheat; */
-font-family: cursive
+#bisagan {
+  /* border: 2px solid wheat; */
+  font-family: cursive
+}
+
+#bisagan2 {
+  border: 2px solid crimson;
+  font-family: cursive;
+  margin: 30px;
+  border-radius: 80px;
+  background-color: crimson;
+}
+
+#bisagan3 {
+  border: 2px solid blue;
+  font-family: cursive;
+  margin: 30px;
+  border-radius: 80px;
+  background-color: blue
+}
+
+#bisagan4 {
+  border: 2px solid black;
+  font-family: cursive;
+  margin: 30px;
+  border-radius: 80px;
+  background-color: black;
 }
 
 #contt {
