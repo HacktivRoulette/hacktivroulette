@@ -1,3 +1,19 @@
 body{
   background-image: url('http://t.wallpaperweb.org/wallpaper/miscellaneous/1920x1200/HD_picture_of_orginal_roulette.jpg')
 }
+
+#cont{
+  border: 2px solid white;
+}
+
+#contt{
+  border: 2px solid rgb(192, 34, 34);
+  width: 50%;
+
+  padding: 30px;
+  margin-left: 250px;
+}
+
+#conttt{
+  border: 2px solid white;
+}
