@@ -40,6 +40,9 @@ body {
   margin: 30px;
   border-radius: 80px;
   background-color: crimson;
+  -webkit-transition: width 3s;
+  /* For Safari 3.1 to 6.0 */
+  transition: width 3s;
 }
 
 #bisagan3 {
@@ -47,7 +50,10 @@ body {
   font-family: cursive;
   margin: 30px;
   border-radius: 80px;
-  background-color: blue
+  background-color: blue;
+  -webkit-transition: width 3s;
+  /* For Safari 3.1 to 6.0 */
+  transition: width 3s;
 }
 
 #bisagan4 {
@@ -56,6 +62,9 @@ body {
   margin: 30px;
   border-radius: 80px;
   background-color: black;
+  -webkit-transition: width 3s;
+  /* For Safari 3.1 to 6.0 */
+  transition: width 3s;
 }
 
 #contt {
@@ -68,6 +77,18 @@ body {
 }
 
 #contttt:hover {
+  width: 500px;
+}
+
+#bisagan2:hover {
+  width: 500px;
+}
+
+#bisagan3:hover {
+  width: 500px;
+}
+
+#bisagan4:hover {
   width: 500px;
 }
 
