@@ -23,6 +23,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    playerId: null,
     playerInfo: null,
     easyPlayers: null,
   },
@@ -39,15 +40,61 @@ export default new Vuex.Store({
     },
     playerInfo(state, payload) {
       return state.playerInfo = payload
-    }
+    },
+    playerId(state, payload) {
+        return state.playerId = payload
+    },
   },
   actions: {
     addUser(context, payload) {
       context.commit('addUser', payload)
     },
-    addUserEasy() {
+    addUserEasy(context) {
       let updatedEasyPlayers = this.state.easyPlayers;
       updatedEasyPlayers.push(this.state.playerInfo);
+      if (updatedEasyPlayers.length === 1) {
+        console.log('1');
+        context.commit('playerId', 0)
+      } else if (updatedEasyPlayers.length === 2) {
+        console.log('2');
+        context.commit('playerId', 1)
+      }
+      let docRef = firebase.firestore().collection('rooms').doc('easy');
+      docRef.set({
+          players: updatedEasyPlayers
+        })
+        .then(function (data) {
+          console.log(data)
+        })
+        .catch(function (err) {
+          console.log(err)
+        })
+    },
+    changeStatus(context, payload) {
+      let updatedEasyPlayers = this.state.easyPlayers;
+      console.log(payload);
+      console.log(updatedEasyPlayers);
+        if (payload === 1) {
+          updatedEasyPlayers[0].status = true
+          updatedEasyPlayers[1].status = false
+        } else {
+          updatedEasyPlayers[1].status = true
+          updatedEasyPlayers[0].status = false
+        }
+      let docRef = firebase.firestore().collection('rooms').doc('easy');
+      docRef.set({
+          players: updatedEasyPlayers
+        })
+        .then(function (data) {
+          console.log(data)
+        })
+        .catch(function (err) {
+          console.log(err)
+        })
+    },
+    changeScore(context, payload) {
+      let updatedEasyPlayers = this.state.easyPlayers;
+      updatedEasyPlayers[payload.id].score += payload.score;
       let docRef = firebase.firestore().collection('rooms').doc('easy');
       docRef.set({
           players: updatedEasyPlayers
@@ -71,6 +118,7 @@ export default new Vuex.Store({
               score: 0,
               status: true,
             };
+            // localStorage.setItem('playerId', 1);
             context.commit('playerInfo', playerInfoSkeleton);
           } else {
             let playerInfoSkeleton = {
@@ -78,6 +126,7 @@ export default new Vuex.Store({
               score: 0,
               status: false,
             };
+            // localStorage.setItem('playerId', 2);
             context.commit('playerInfo', playerInfoSkeleton);
           }
         });
