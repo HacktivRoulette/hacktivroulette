@@ -1,17 +1,17 @@
 <template>
   <div class="hello">
     <div id="cont" class="container">
-      
+
         <div id="contt" class="col s12 m12 l12 center">
           <div class="row col s12 m6 l6">
             <div class="col s12 m12 l12">
               <i style="color:white" class="material-icons prefix">account_circle</i>
-              <input style="color:white" placeholder="Nickname..." id="icon_prefix" type="text" class="validate">
+              <input style="color:white" placeholder="Nickname..." id="icon_prefix" type="text" class="validate" v-model="nickname">
 
             </div>
             <router-link to="/about">
               <div id="conttt" class="col s12 m12 l12">
-                <h6 @click= "enter">
+                <h6 @click="submit">
                   <b style="color:white">Submit</b>
                 </h6>
 
@@ -21,7 +21,7 @@
           </div>
 
         </div>
-   
+
 
     </div>
 
@@ -29,14 +29,20 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   name: 'HelloWorld',
   data() {
-    return {}
+    return {
+      nickname: ''
+    }
   },
   methods: {
-    enter() {
-      console.log('bisa')
+    ...mapActions([
+       "createUser"
+    ]),
+    submit: function () {
+        this.createUser(this.nickname)
     }
   }
 }
