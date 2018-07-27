@@ -9,6 +9,25 @@
   </div>
 </template>
 
+<script>
+import { mapActions } from 'vuex'
+
+export default {
+  name: 'Hellopage',
+  data() {
+    return {}
+  },
+  created () {
+    this.testCreated();
+  },
+  methods: {
+    ...mapActions([
+       "testCreated"
+    ]),
+  }
+}
+</script>
+
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

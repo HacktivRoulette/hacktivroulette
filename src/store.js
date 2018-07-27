@@ -14,51 +14,73 @@ var config = {
 
 firebase.initializeApp(config);
 const firestore = firebase.firestore();
-const settings = { timestampsInSnapshots: true };
+const settings = {
+  timestampsInSnapshots: true
+};
 firestore.settings(settings);
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    playerName: '',
-    easy: [],
-    medium: [],
-    hard: []
+    playerInfo: null,
+    easyPlayers: null,
   },
   mutations: {
-    addUser (state, payload) {
-        return state.playerName = payload
+    addUser(state, payload) {
+      return state.playerInfo.name = payload
+    },
+    easyPlayers(state, payload) {
+      if (payload === undefined) {
+        return state.easyPlayers = [];
+      } else {
+        return state.easyPlayers = payload;
+      }
+    },
+    playerInfo(state, payload) {
+      return state.playerInfo = payload
     }
   },
   actions: {
     addUser(context, payload) {
       context.commit('addUser', payload)
-      // console.log(payload);
-
-      // let docRef = firebase.firestore().collection('test');
-      // docRef.add({
-      //   player1: payload,
-      // })
-      // .then((data) => {
-      //   console.log(data)
-      // })
-      // .catch((err) => {
-      //   console.log(err);
-      // });
     },
-    addUserEasy () {
-      let docRef = firebase.firestore().collection('rooms/easy/players')
-      console.log(this.state.playerName)
-      docRef.add({
-          playerName: this.state.playerName
-      })
-      .then(function (data) {
+    addUserEasy() {
+      let updatedEasyPlayers = this.state.easyPlayers;
+      updatedEasyPlayers.push(this.state.playerInfo);
+      let docRef = firebase.firestore().collection('rooms').doc('easy');
+      docRef.set({
+          players: updatedEasyPlayers
+        })
+        .then(function (data) {
           console.log(data)
-      })
-      .catch(function(err) {
+        })
+        .catch(function (err) {
           console.log(err)
-      })
-    }
-  }
+        })
+    },
+    testCreated(context) {
+      firebase.firestore().collection("rooms").doc("easy")
+        .onSnapshot(function (doc) {
+          // let fsEasyPlayers = doc.data().players
+          // context.commit('easy', fseasyplayers)
+          context.commit('easyPlayers', doc.data().players)
+          if (doc.data().players.length === 0 || doc.data().players === undefined) {
+            let playerInfoSkeleton = {
+              name: '',
+              score: 0,
+              status: true,
+            };
+            context.commit('playerInfo', playerInfoSkeleton);
+          } else {
+            let playerInfoSkeleton = {
+              name: '',
+              score: 0,
+              status: false,
+            };
+            context.commit('playerInfo', playerInfoSkeleton);
+          }
+        });
+    },
+  },
 });
