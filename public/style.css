@@ -1,0 +1,111 @@
+body {
+  background-image: url('http://t.wallpaperweb.org/wallpaper/miscellaneous/1920x1200/HD_picture_of_orginal_roulette.jpg')
+}
+
+#cont {
+  /* border: 2px solid white; */
+  width: 50%;
+}
+
+#contttt {
+  /* border: 2px solid rgb(167, 9, 9); */
+  width: 100%;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: rgb(105, 35, 35);
+  opacity: 0.9;
+  -webkit-transition: width 3s;
+  /* For Safari 3.1 to 6.0 */
+  transition: width 3s;
+}
+
+#conttttt {
+  /* border: 2px solid rgb(167, 9, 9); */
+  width: 100%;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: rgb(105, 35, 35);
+  opacity: 0.9;
+  height: 550px;
+}
+
+#bisagan {
+  /* border: 2px solid wheat; */
+  font-family: cursive
+}
+
+#bisagan2 {
+  border: 2px solid crimson;
+  font-family: cursive;
+  margin: 30px;
+  border-radius: 80px;
+  background-color: crimson;
+  -webkit-transition: width 3s;
+  /* For Safari 3.1 to 6.0 */
+  transition: width 3s;
+}
+
+#bisagan3 {
+  border: 2px solid blue;
+  font-family: cursive;
+  margin: 30px;
+  border-radius: 80px;
+  background-color: blue;
+  -webkit-transition: width 3s;
+  /* For Safari 3.1 to 6.0 */
+  transition: width 3s;
+}
+
+#bisagan4 {
+  border: 2px solid black;
+  font-family: cursive;
+  margin: 30px;
+  border-radius: 80px;
+  background-color: black;
+  -webkit-transition: width 3s;
+  /* For Safari 3.1 to 6.0 */
+  transition: width 3s;
+}
+
+#contt {
+  /* border: 2px solid rgb(167, 9, 9); */
+  width: 100%;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: rgb(105, 35, 35);
+  opacity: 0.9;
+}
+
+#contttt:hover {
+  width: 500px;
+}
+
+#bisagan2:hover {
+  width: 500px;
+}
+
+#bisagan3:hover {
+  width: 500px;
+}
+
+#bisagan4:hover {
+  width: 500px;
+}
+
+#conttt {
+  border: 2px solid rgb(136, 128, 128);
+  margin-top: 10px;
+  height: 40px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+#but {
+  width: 100%;
+}
+
+#bang {
+  margin-top: 100px;
+}
+
+/* =============================================== */
