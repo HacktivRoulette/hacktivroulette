@@ -2,53 +2,62 @@
   <div class="hello">
     <div class="row">
 
-      <div id="inibisa" class="col s5 m5 l5">
+      <div id="inibisa" class="col s5 m5 l5" v-if="easyPlayers.length >= 1">
         <h1 style="color:white">Player 1</h1>
         <div id="total" class="col s3 m3 l3 right">
-          <h1>{{numSum}}</h1>
+          <h1>{{ easyPlayers[0].score }}</h1>
         </div>
         <div id="totalagain" class="col s6 m6 l6 left">
-
         </div>
       </div>
       <div class="col s2 m2 l2">
       </div>
-      <div id="inibisa" class="col s5 m5 l5">
+
+      <div id="inibisa" class="col s5 m5 l5" v-if="easyPlayers.length === 2">
         <h1 style="color:white">Player 2</h1>
         <div id="total" class="col s3 m3 l3 left">
-          <h1>{{numSum}}</h1>
+          <h1>{{ easyPlayers[1].score }}</h1>
         </div>
         <div id="totalagain" class="col s6 m6 l6 right">
-
         </div>
-
       </div>
 
     </div>
     <div class="row">
       <div class="col s4 m4 l4">
-        <h1 style="color:white">{{diceRandom}}</h1>
       </div>
-      <div id="roulette" class="col s4 m24 l4">
-        <router-link to="">
+
+      <div id="roulette" class="col s4 m24 l4" v-if="easyPlayers.length === 2">
+        <router-link to="" v-if="easyPlayers[playerId].status === true">
           <img @click="dice()" src="http://www.selzer-mckenzie.com/bilder/RouletteRun.gif">
         </router-link>
       </div>
+
       <div class="col s4 m4 l4">
-        <h1 style="color:white">{{diceRandom}}</h1>
       </div>
     </div>
+
+    <img src="https://previews.123rf.com/images/lkeskinen/lkeskinen1702/lkeskinen170211271/71203422-you-win-rubber-stamp-grunge-design-with-dust-scratches-effects-can-be-easily-removed-for-a-clean-cri.jpg" v-if="easyPlayers[playerId].score >= 30">
 
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
+import { mapActions } from 'vuex';
+
 export default {
   name: 'Hellopage',
   data() {
     return {
       diceRandom: '',
-      numSum: 0
+      numSum: 0,
+      numberOfPlayers: 0,
+    }
+  },
+  watch: {
+    easyPlayers: function (val) {
+      this.numberOfPlayers = val;
     }
   },
   methods: {
@@ -59,10 +68,27 @@ export default {
       var random = num[Math.floor(Math.random() * num.length)]
       // console.log(random)
 
-      this.diceRandom = random
-      this.numSum += parseInt(random)
-      console.log(this.numSum)
-    }
+      this.diceRandom = random;
+      this.numSum += parseInt(random);
+
+      this.changeScore({
+        id: this.playerId,
+        score: this.diceRandom,
+      })
+
+      this.changeStatus(this.playerId)
+      // console.log(this.numSum)
+    },
+    ...mapActions([
+        'changeStatus',
+        'changeScore',
+    ])
+  },
+  computed: {
+    ...mapState([
+      'easyPlayers',
+      'playerId',
+    ])
   }
 }
 </script>
