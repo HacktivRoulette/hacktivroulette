@@ -21,24 +21,44 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-
+    playerName: '',
+    easy: [],
+    medium: [],
+    hard: []
   },
   mutations: {
-
+    addUser (state, payload) {
+        return state.playerName = payload
+    }
   },
   actions: {
-    createUser(context, payload) {
+    addUser(context, payload) {
+      context.commit('addUser', payload)
       // console.log(payload);
-      let docRef = firebase.firestore().collection('test');
-      docRef.add({
-        player1: payload,
-      })
-      .then((data) => {
-        console.log(data)
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+
+      // let docRef = firebase.firestore().collection('test');
+      // docRef.add({
+      //   player1: payload,
+      // })
+      // .then((data) => {
+      //   console.log(data)
+      // })
+      // .catch((err) => {
+      //   console.log(err);
+      // });
     },
-  },
+    addUserEasy () {
+      let docRef = firebase.firestore().collection('rooms/easy/players')
+      console.log(this.state.playerName)
+      docRef.add({
+          playerName: this.state.playerName
+      })
+      .then(function (data) {
+          console.log(data)
+      })
+      .catch(function(err) {
+          console.log(err)
+      })
+    }
+  }
 });

@@ -6,7 +6,7 @@
         <h1 id="bisagan" style="color:white">Join Room</h1>
 
         <router-link to="">
-          <div id="bisagan2" class="col s12 m12 l12">
+          <div id="bisagan2" class="col s12 m12 l12" v-on:click="addUserEasy">
             <h4 class="col s12 m12 l12" style="color:white">EASY</h4>
           </div>
         </router-link>
@@ -28,12 +28,17 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   name: 'Hellopage',
   data() {
     return {}
   },
   methods: {
+    ...mapActions([
+       "addUserEasy"
+    ]),
     enter() {
       console.log('bisa')
     }
