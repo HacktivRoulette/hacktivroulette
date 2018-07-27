@@ -39,10 +39,10 @@ export default {
   },
   methods: {
     ...mapActions([
-       "createUser"
+       "addUser"
     ]),
     submit: function () {
-        this.createUser(this.nickname)
+        this.addUser(this.nickname)
     }
   }
 }
