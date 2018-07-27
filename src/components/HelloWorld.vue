@@ -9,7 +9,7 @@
               <input style="color:white" placeholder="Nickname..." id="icon_prefix" type="text" class="validate" v-model="nickname">
 
             </div>
-            <router-link to="/about">
+            <router-link to="/listroom">
               <div id="conttt" class="col s12 m12 l12">
                 <h6 @click="submit">
                   <b style="color:white">Submit</b>
